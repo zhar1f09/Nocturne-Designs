@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - Summit Customs</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1468927403220013200/1475477477995577434/logo_ttransparent.png?ex=69ac217b&is=69aacffb&hm=a37fe3f759008434a225dfd9391162a2142e7fc2e27bee1d9bb53037ebb2ce75&=&format=webp&quality=lossless&width=888&height=888">
+
+<style>
+/* ---------- GLOBAL ---------- */
+* {
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body {
+background: linear-gradient(135deg,#0f3ea8,#1e6cff,#3aa0ff);
+color:white;
+line-height:1.6;
+}
+
+/* ---------- NAVIGATION ---------- */
+nav {
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 60px;
+background: rgba(0,0,0,0.35);
+backdrop-filter: blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.1);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo img {
+height:50px;
+width:auto;
+transition:0.3s ease;
+filter: drop-shadow(0 0 12px #1e90ff);
+}
+
+.logo img:hover {
+transform: scale(1.08);
+filter: drop-shadow(0 0 20px #1e90ff);
+}
+
+nav ul {
+list-style:none;
+display:flex;
+gap:30px;
+}
+
+nav a {
+text-decoration:none;
+color:rgba(255,255,255,0.9);
+transition:0.3s;
+font-weight:500;
+position:relative;
+}
+
+nav a:hover {
+color:#ffffff;
+}
+
+nav a::after {
+content:"";
+position:absolute;
+width:0;
+height:2px;
+bottom:-5px;
+left:0;
+background:#ffffff;
+transition:0.3s;
+}
+
+nav a:hover::after {
+width:100%;
+}
+
+/* ---------- HERO BANNER ---------- */
+.hero-banner {
+position:relative;
+height:400px;
+background:
+linear-gradient(135deg, rgba(15,62,168,0.8), rgba(30,108,255,0.8)),
+url("https://media.discordapp.net/attachments/1468927403220013200/1475477299041275995/official_summit_banner.png?ex=69ac2151&is=69aacfd1&hm=5da24a050842c744120146375ec945c98dc153357a3c4b491459d4b16ee222b6&=&format=webp&quality=lossless&width=1863&height=649") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero-banner h1 {
+font-size:48px;
+font-weight:800;
+text-shadow:2px 2px 12px rgba(0,0,0,0.5);
+}
+
+/* ---------- SECTION ---------- */
+section {
+padding:100px 60px;
+text-align:center;
+}
+
+section h2 {
+font-size:36px;
+margin-bottom:15px;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+section p {
+max-width:700px;
+margin:0 auto 40px auto;
+opacity:0.9;
+font-size:1.1rem;
+}
+
+/* ---------- SERVICES GRID ---------- */
+.services {
+display:grid;
+grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+/* ---------- SERVICE CARDS ---------- */
+/* ---------- SERVICE CARDS ---------- */
+.card {
+background: rgba(255,255,255,0.08);
+padding:35px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.25);
+text-align:center;
+backdrop-filter: blur(10px);
+transition:0.3s;
+
+/* NEW */
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+min-height:260px;
+}
+
+.card:hover {
+transform:translateY(-8px);
+box-shadow:0 15px 35px rgba(0,0,0,0.3);
+background: rgba(255,255,255,0.14);
+}
+
+.card p {
+margin-bottom:25px;
+font-size:16px;
+line-height:1.7;
+color:rgba(255,255,255,0.95);
+flex-grow:1;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+display:inline-block;
+padding:12px 28px;
+border-radius:10px;
+background:#ffffff;
+color:#1565c0;
+font-weight:700;
+text-decoration:none;
+transition:0.25s;
+}
+
+.btn:hover {
+background:#e3f2fd;
+transform:translateY(-2px);
+box-shadow:0 6px 20px rgba(0,0,0,0.25);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+padding:30px;
+text-align:center;
+background: rgba(0,0,0,0.35);
+font-size:14px;
+opacity:0.9;
+margin-top:80px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:768px){
+nav {
+flex-direction:column;
+gap:15px;
+padding:20px;
+}
+
+section {
+padding:60px 20px;
+}
+
+.hero-banner h1 {
+font-size:32px;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+<div class="logo">
+    <a href="index.html">
+        <img src="https://media.discordapp.net/attachments/1468927403220013200/1475477477995577434/logo_ttransparent.png?ex=69ac217b&is=69aacffb&hm=a37fe3f759008434a225dfd9391162a2142e7fc2e27bee1d9bb53037ebb2ce75&=&format=webp&quality=lossless&width=888&height=888" alt="Summit Customs Logo">
+    </a>
+</div>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="https://discord.com/channels/1379296154671644713/1467344547259486514">Portfolios</a></li>
+<li><a href="https://discord.gg/XP4w7DSqW3">Terms</a></li>
+<li><a href="https://discord.gg/H8XGkCye85" target="_blank">Discord</a></li>
+</ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero-banner">
+<h1>Our Services</h1>
+</div>
+
+<!-- SERVICES SECTION -->
+<section>
+<h2>Our Services</h2>
+<p>Professional custom work designed to help your community stand out.</p>
+
+<div class="services">
+
+<div class="card">
+<h3>Clothing</h3>
+<p>
+Shirts — <b>40+</b><br>
+Pants — <b>40+</b><br>
+Full Set — <b>80+</b>
+</p>
+<a href="https://discord.gg/H8XGkCye85" class="btn" target="_blank">Order</a>
+</div>
+
+<div class="card">
+<h3>Graphics</h3>
+<p>
+Banners — <b>150+</b><br>
+Logos — <b>150+</b><br>
+Role Icons — <b>75+</b>
+</p>
+<a href="https://discord.gg/H8XGkCye85" class="btn" target="_blank">Order</a>
+</div>
+
+<div class="card">
+<h3>Liveries</h3>
+<p>
+LEO — <b>150+</b><br>
+FD — <b>250+</b><br>
+DOT — <b>100+</b><br>
+Staff — <b>250+</b><br>
+Misc — <b>300+</b>
+</p>
+<a href="https://discord.gg/H8XGkCye85" class="btn" target="_blank">Order</a>
+</div>
+
+<div class="card">
+<h3>Discord Services</h3>
+<p>
+Bots — <b>600+</b><br>
+Embeds — <b>150+</b><br>
+Channels — <b>250+</b><br>
+Roles — <b>150+</b>
+</p>
+<a href="https://discord.gg/H8XGkCye85" class="btn" target="_blank">Order</a>
+</div>
+
+<div class="card">
+<h3>Photography</h3>
+<p>
+Stock — <b>40+</b><br>
+Original — <b>30+</b><br>
+Edited — <b>80+</b>
+</p>
+<a href="https://discord.gg/H8XGkCye85" class="btn" target="_blank">Order</a>
+</div>
+
+<div class="card">
+<h3>ELS</h3>
+<p>
+Simple — <b>45+</b><br>
+Standard — <b>65+</b><br>
+Complex — <b>85+</b>
+</p>
+<a href="https://discord.gg/H8XGkCye85" class="btn" target="_blank">Order</a>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Summit Customs. All rights reserved.
+</footer>
+
+</body>
+</html>
