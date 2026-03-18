@@ -1,3 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - NFI's Custom</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 60px;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 50px;
+    transition: 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.08);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+}
+
+nav a:hover {
+    color: #E74C3C;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #E74C3C;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(6px) brightness(0.35);
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(231,76,60,0.55), rgba(146,43,33,0.55));
+    z-index: 1;
+}
+
+.hero h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 48px;
+    font-weight: 800;
+}
+
+/* SECTIONS */
+section {
+    padding: 90px 60px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+section p {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    opacity: 0.9;
+}
+
+/* SERVICE CARDS */
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.card {
+    background: linear-gradient(135deg, #E74C3C, #922B21);
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 25px rgba(231,76,60,0.25);
+    transition: 0.3s;
+    color: white;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(231,76,60,0.35);
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.card p {
+    margin-bottom: 10px;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* PRICING PLANS */
+.pricing-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.plan {
+    background: linear-gradient(135deg, #922B21, #E74C3C);
+    padding: 40px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 25px rgba(231,76,60,0.25);
+    transition: 0.3s;
+}
+
+.plan:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(231,76,60,0.35);
+}
+
+.plan h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.plan .price {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.plan ul li {
+    margin: 10px 0;
+    opacity: 0.9;
+}
+
+/* FOOTER */
+footer {
+    padding: 30px;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    font-size: 14px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* RESPONSIVE */
+@media(max-width:768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">
+        <a href="index.html">
+            <img src="NFI.webp" alt="NFI's Custom Logo">
+        </a>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="https://discord.gg/GHYsrwvaN7" target="_blank">Discord</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <img src="official_banner.webp" alt="Services Background">
+    <h1>Our Services</h1>
+</div>
+
+<!-- SERVICES -->
 <section>
 <h2>Professional Services</h2>
 <p>Premium custom work designed to elevate your community with style and precision.</p>
@@ -36,3 +305,50 @@
 
 </div>
 </section>
+
+<!-- MARKETING PLANS -->
+<section>
+<h2>Marketing Pricing Plans</h2>
+<p>Professional promotional packages designed to grow your brand and expand your reach.</p>
+
+<div class="pricing-plans">
+
+    <div class="plan">
+        <h3>Basic Plan</h3>
+        <div class="price">R$150</div>
+        <ul>
+            <li>Advertising Package</li>
+            <li>Partnership Package</li>
+            <li>Mutual Giveaway Package</li>
+        </ul>
+    </div>
+
+    <div class="plan">
+        <h3>Regular Plan</h3>
+        <div class="price">R$250</div>
+        <ul>
+            <li>Advertising Package</li>
+            <li>Partnership Package</li>
+            <li>Mutual Giveaway Package</li>
+        </ul>
+    </div>
+
+    <div class="plan">
+        <h3>Premium Plan</h3>
+        <div class="price">R$500</div>
+        <ul>
+            <li>Advertising Package</li>
+            <li>Partnership Package</li>
+            <li>Mutual Giveaway Package</li>
+        </ul>
+    </div>
+
+</div>
+</section>
+
+<footer>
+© 2026 NFI's Custom. All rights reserved.
+</footer>
+
+</body>
+</html>
