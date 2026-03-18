@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Summit Customs</title>
+<title>NFI's Custom</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -44,13 +44,13 @@ nav ul {
     gap: 25px;
 }
 
-nav A {
+nav a {
     text-decoration: none;
     color: white;
-    transition: 0.3S;
+    transition: 0.3s;
 }
 
-nav A:hover {
+nav a:hover {
     color: #1e90ff;
 }
 
@@ -96,11 +96,12 @@ nav A:hover {
     margin-bottom: 20px;
 }
 
-.hero-content P {
+.hero-content p {
     max-width: 700px;
     margin: 0 auto 30px auto;
     opacity: 0.9;
 }
+
 /* ---------- BUTTON ---------- */
 .btn {
     display: inline-block;
@@ -110,7 +111,7 @@ nav A:hover {
     color: white;
     font-weight: 600;
     text-decoration: none;
-    transition: 0.3S;
+    transition: 0.3s;
 }
 
 .btn:hover {
@@ -135,12 +136,26 @@ section {
     background: rgba(0,0,0,0.25);
     padding: 30px;
     border-radius: 15px;
-    transition: 0.3S;
+    transition: 0.3s;
 }
 
 .feature-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ---------- LOGO ---------- */
+.logo img {
+    height: 45px;
+    width: auto;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    filter: drop-shadow(0 0 6px rgba(30,144,255,0.5));
+}
+
+.logo img:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 12px rgba(30,144,255,0.9));
 }
 
 /* ---------- FOOTER ---------- */
@@ -167,89 +182,66 @@ footer {
     section {
         padding: 60px 20px;
     }
-
-}
-.logo img {
-    height: 45px;
-    border-radius: 10px;
-    transition: 0.3S ease;
-    filter: drop-shadow(0 0 6px rgba(30,144,255,0.5));
-}
-
-.logo img:hover {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 12px rgba(30,144,255,0.9));
-}
-/* ---------- LOGO ---------- */
-.logo img {
-    height: 45px;
-    width: auto;
-    border-radius: 10px;
-    transition: 0.3S ease;
-}
-
-.logo img:hover {
-    transform: scale(1.08);
 }
 
 </style>
+
 <link rel="icon" type="image/png" href="logo_ttransparent.webp">
 </head>
+
 <body>
 
 <nav>
-<div class="logo">
-    <img src="logo_ttransparent.webp" alt="Summit Customs Logo">
-</div>
-<ul>
-<li><A href="index.html">Home</A></li>
-<li><A href="services.html">Services</A></li>
-<li><A href="https://discord.com/channels/1379296154671644713/1467344547259486514">Portfolio</A></li>
-<li><A href="https://discord.gg/XP4w7DSqW3">Terms</A></li>
-<li><A href="https://discord.gg/H8XGkCye85" target="_blank">Discord</A></li>
-</ul>
+    <div class="logo">
+        <img src="logo_ttransparent.webp" alt="NFI's Custom Logo">
+    </div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="https://discord.com/channels/1379296154671644713/1467344547259486514">Portfolio</a></li>
+        <li><a href="https://discord.gg/XP4w7DSqW3">Terms</a></li>
+        <li><a href="https://discord.gg/H8XGkCye85" target="_blank">Discord</a></li>
+    </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero-banner">
-    <img src="official_summit_banner.webp"
-         alt="Summit Customs Banner"
-         class="hero-img">
+    <img src="official_summit_banner.webp" alt="NFI's Custom Banner" class="hero-img">
 
     <div class="hero-content">
-        <h2>Elevate Your Server With Premium Designs</h2>
-        <P>Professional Discord server branding, logos, and custom graphics tailored to grow your community and stand out.</P>
-        <A href="services.html" class="btn">View Services</A>
+        <h2>Premium Designs for Your Server</h2>
+        <p>Professional Discord branding, logos, and custom graphics crafted to elevate your community.</p>
+        <a href="services.html" class="btn">View Services</a>
     </div>
 </section>
 
 <!-- WHY CHOOSE US -->
 <section>
-<h2>Why Choose Summit Customs?</h2>
+<h2>Why Choose NFI's Custom?</h2>
 
 <div class="features">
     <div class="feature-card">
         <h3>Professional Quality</h3>
-        <P>Clean, modern, high-resolution designs built for serious communities.</P>
+        <p>Clean, modern, high-resolution designs built for serious communities.</p>
     </div>
 
     <div class="feature-card">
         <h3>Fast Delivery</h3>
-        <P>Quick turnaround times without sacrificing quality.</P>
+        <p>Quick turnaround times without sacrificing quality.</p>
     </div>
 
     <div class="feature-card">
         <h3>Custom Made</h3>
-        <P>Every design is tailored specifically to your server.</P>
+        <p>Every design is tailored specifically to your server.</p>
     </div>
 </div>
 
 <br><br>
-<A href="https://discord.gg/wC2DM6HA" target="_blank" class="btn">Join Our Discord</A>
+<a href="https://discord.gg/wC2DM6HA" target="_blank" class="btn">Join Our Discord</a>
 </section>
 
 <footer>
-© 2026 Summit Customs. All rights reserved.
+© 2026 NFI's Custom. All rights reserved.
 </footer>
 
 </body>
