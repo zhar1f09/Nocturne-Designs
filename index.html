@@ -3,299 +3,256 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services - NFI's Custom</title>
+<title>NFI's Custom</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 /* ---------- GLOBAL ---------- */
 * {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-  background: #0a0a0a;
-  color:white;
-  line-height:1.6;
-  overflow-x:hidden;
+    background: #0a0a0a;
+    color: white;
+    overflow-x: hidden;
 }
 
 /* ---------- NAVIGATION ---------- */
 nav {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:22px 60px;
-  background: rgba(0,0,0,0.45);
-  backdrop-filter: blur(12px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  position:sticky;
-  top:0;
-  z-index:100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 60px;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo img {
-  height:50px;
-  transition:0.3s ease;
+    height: 50px;
+    transition: 0.3s ease;
 }
 
 .logo img:hover {
-  transform: scale(1.08);
+    transform: scale(1.08);
 }
 
 nav ul {
-  list-style:none;
-  display:flex;
-  gap:30px;
+    list-style: none;
+    display: flex;
+    gap: 30px;
 }
 
 nav a {
-  text-decoration:none;
-  color:rgba(255,255,255,0.85);
-  font-weight:500;
-  transition:0.3s;
-  position:relative;
+    text-decoration: none;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
 }
 
 nav a:hover {
-  color:#E74C3C;
+    color: #E74C3C;
 }
 
 nav a::after {
-  content:"";
-  position:absolute;
-  width:0;
-  height:2px;
-  bottom:-5px;
-  left:0;
-  background:#E74C3C;
-  transition:0.3s;
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #E74C3C;
+    transition: 0.3s;
 }
 
 nav a:hover::after {
-  width:100%;
+    width: 100%;
 }
 
-/* ---------- HERO ---------- */
-.hero-banner {
-  position:relative;
-  height:400px;
-  background:
-  linear-gradient(135deg, rgba(231,76,60,0.7), rgba(146,43,33,0.7)),
-  url("official_banner.webp") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+/* ---------- HERO SECTION ---------- */
+.hero {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
 }
 
-.hero-banner h1 {
-  font-size:48px;
-  font-weight:800;
-  text-shadow:2px 2px 12px rgba(0,0,0,0.5);
+.hero img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(6px) brightness(0.4);
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
-/* ---------- SECTION ---------- */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(231,76,60,0.55), rgba(146,43,33,0.55));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #E74C3C;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #c0392b;
+    transform: translateY(-3px);
+}
+
+/* ---------- FEATURES SECTION ---------- */
 section {
-  padding:90px 60px;
-  text-align:center;
+    padding: 90px 60px;
+    text-align: center;
 }
 
 section h2 {
-  font-size:36px;
-  margin-bottom:15px;
+    font-size: 36px;
+    margin-bottom: 15px;
 }
 
-section p {
-  max-width:700px;
-  margin:0 auto 40px auto;
-  opacity:0.9;
-  font-size:1.1rem;
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
 }
 
-/* ---------- SERVICES GRID ---------- */
-.services {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap:30px;
-  margin-top:40px;
+.feature-card {
+    background: rgba(255,255,255,0.06);
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
 }
 
-/* ---------- SERVICE CARDS ---------- */
-.card {
-  background: rgba(255,255,255,0.06);
-  padding:35px;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-  transition:0.3s;
-}
-
-.card:hover {
-  transform:translateY(-6px);
-  box-shadow:0 12px 30px rgba(231,76,60,0.25);
-}
-
-.card h3 {
-  font-size:24px;
-  margin-bottom:15px;
-  font-weight:700;
-}
-
-.card p {
-  margin-bottom:20px;
-  font-size:16px;
-  line-height:1.7;
-  opacity:0.95;
-}
-
-/* ---------- PRICING PLANS ---------- */
-.pricing-plans {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap:30px;
-  margin-top:40px;
-}
-
-.plan {
-  background: rgba(255,255,255,0.06);
-  padding:40px;
-  border-radius:18px;
-  border:1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(10px);
-  transition:0.3s;
-}
-
-.plan:hover {
-  transform:translateY(-6px);
-  box-shadow:0 12px 30px rgba(231,76,60,0.25);
-}
-
-.plan h3 {
-  font-size:26px;
-  margin-bottom:15px;
-}
-
-.plan .price {
-  font-size:32px;
-  font-weight:800;
-  margin-bottom:20px;
-  color:#E74C3C;
-}
-
-.plan ul {
-  list-style:none;
-  padding:0;
-  margin-bottom:25px;
-}
-
-.plan ul li {
-  margin:10px 0;
-  opacity:0.9;
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(231,76,60,0.25);
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-  padding:30px;
-  text-align:center;
-  background: rgba(0,0,0,0.4);
-  font-size:14px;
-  margin-top:60px;
-  border-top:1px solid rgba(255,255,255,0.08);
+    padding: 30px;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    font-size: 14px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media(max-width:768px){
-  nav {
-    flex-direction:column;
-    gap:15px;
-    padding:20px;
-  }
+/* ---------- MOBILE ---------- */
+@media(max-width:768px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
 
-  section {
-    padding:60px 20px;
-  }
+    .hero-content h1 {
+        font-size: 34px;
+    }
 
-  .hero-banner h1 {
-    font-size:32px;
-  }
+    section {
+        padding: 60px 20px;
+    }
 }
+
 </style>
 </head>
+
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="logo">
-    <a href="index.html">
-      <img src="NFI.webp" alt="NFI's Custom Logo">
-    </a>
-  </div>
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="terms.html">Terms</a></li>
-    <li><a href="https://discord.gg/GHYsrwvaN7" target="_blank">Discord</a></li>
-  </ul>
+    <div class="logo">
+        <a href="index.html">
+            <img src="NFI.webp" alt="NFI's Custom Logo">
+        </a>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="https://discord.gg/GHYsrwvaN7" target="_blank">Discord</a></li>
+    </ul>
 </nav>
 
 <!-- HERO -->
-<div class="hero-banner">
-  <h1>Our Services</h1>
-</div>
-
-<!-- SERVICES -->
-<section>
-<h2>Professional Services</h2>
-<p>Premium custom work designed to elevate your community with style and precision.</p>
-
-<div class="services">
-  <div class="card"><h3>Scripting</h3><p>Average Price: <b>R$1400+</b></p></div>
-  <div class="card"><h3>Discord Services</h3><p>Average Price: <b>R$220+</b></p></div>
-  <div class="card"><h3>Graphics & GFX</h3><p>Average Price: <b>R$300+</b></p></div>
-  <div class="card"><h3>User Interface (UI)</h3><p>Average Price: <b>R$1200+</b></p></div>
-  <div class="card"><h3>Clothing</h3><p>Average Price: <b>R$110+</b></p></div>
-  <div class="card"><h3>Modeling & Building</h3><p>Average Price: <b>R$1500+</b></p></div>
-</div>
+<section class="hero">
+    <img src="official_banner.webp" alt="Hero Background">
+    <div class="hero-content">
+        <h1>Premium Designs for Your Community</h1>
+        <p>Custom graphics, scripting, UI, clothing, and more — built with precision and style.</p>
+        <a href="services.html" class="btn">View Services</a>
+    </div>
 </section>
 
-<!-- MARKETING PLANS -->
+<!-- FEATURES -->
 <section>
-<h2>Marketing Pricing Plans</h2>
-<p>Professional promotional packages designed to grow your brand and expand your reach.</p>
+    <h2>Why Choose NFI's Custom?</h2>
 
-<div class="pricing-plans">
-  <div class="plan">
-    <h3>Basic Plan</h3>
-    <div class="price">R$150</div>
-    <ul>
-      <li>Advertising Package</li>
-      <li>Partnership Package</li>
-      <li>Mutual Giveaway Package</li>
-    </ul>
-  </div>
-  <div class="plan">
-    <h3>Regular Plan</h3>
-    <div class="price">R$250</div>
-    <ul>
-      <li>Advertising Package</li>
-      <li>Partnership Package</li>
-      <li>Mutual Giveaway Package</li>
-    </ul>
-  </div>
-  <div class="plan">
-    <h3>Premium Plan</h3>
-    <div class="price">R$500</div>
-    <ul>
-      <li>Advertising Package</li>
-      <li>Partnership Package</li>
-      <li>Mutual Giveaway Package</li>
-    </ul>
-  </div>
-</div>
+    <div class="features">
+        <div class="feature-card">
+            <h3>High Quality</h3>
+            <p>Every design is crafted with precision and attention to detail.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Fast Delivery</h3>
+            <p>Quick turnaround without sacrificing quality.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Fully Custom</h3>
+            <p>Everything is made specifically for your server or brand.</p>
+        </div>
+    </div>
 </section>
 
 <footer>
@@ -303,4 +260,4 @@ footer {
 </footer>
 
 </body>
-</html>
+</html>I
