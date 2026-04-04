@@ -23,6 +23,20 @@ body {
     scroll-behavior: smooth;
 }
 
+/* ANIMATIONS */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* NAVIGATION */
 nav {
     display: flex;
@@ -152,22 +166,29 @@ section p.subtitle {
 }
 
 .term-box {
-    background: rgba(255,255,255,0.05);
+    background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
     padding: 35px;
     border-radius: 18px;
     border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(231,76,60,0.25);
+    transition: 0.4s ease;
     text-align: left;
+    max-width: 350px;
 }
 
 .term-box:hover {
-    transform: translateY(-6px);
-    background: rgba(255,255,255,0.08);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(231,76,60,0.35);
+    background: linear-gradient(135deg, #E74C3C, #922B21);
 }
 
 .term-box h3 {
     font-size: 22px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .term-box p {
@@ -220,47 +241,47 @@ footer {
 
     <div class="terms-grid">
         <div class="term-box">
-            <h3>Payments & Assets</h3>
+            <h3>💰 Payments & Assets</h3>
             <p>Clients must pay either 50/50 or fully upfront depending on the designer’s requirements. Final products are delivered unwatermarked only after full payment. PSD/PDN files are not provided.</p>
         </div>
 
         <div class="term-box">
-            <h3>Details</h3>
+            <h3>📜 Details</h3>
             <p>You are required to provide all necessary information crucial to the designer’s preference for your order. Missing details may delay production.</p>
         </div>
 
         <div class="term-box">
-            <h3>Designer Pinging</h3>
+            <h3>🚫 Designer Pinging</h3>
             <p>Consistently pinging a designer to rush your order will result in immediate ticket closure. Refunds will not be issued in such cases.</p>
         </div>
 
         <div class="term-box">
-            <h3>Requesting Designers</h3>
+            <h3>🎨 Requesting Designers</h3>
             <p>You may request a specific designer, but arrangements must be made before the order begins.</p>
         </div>
 
         <div class="term-box">
-            <h3>Reselling</h3>
+            <h3>🔗 Reselling</h3>
             <p>Reselling our products is only permitted if the designer explicitly allows it. In such cases, proper credit must be given to both the designer and Nocturne Designs.</p>
         </div>
 
         <div class="term-box">
-            <h3>Refunds</h3>
+            <h3>💳 Refunds</h3>
             <p>Refunds are not offered after payment unless an issue or mistake is caused by our end. Credits may be issued if approved by HR.</p>
         </div>
 
         <div class="term-box">
-            <h3>Lost Products</h3>
+            <h3>📦 Lost Products</h3>
             <p>We are not responsible for lost products. Once delivered, clients must store their assets safely.</p>
         </div>
 
         <div class="term-box">
-            <h3>Changing Orders</h3>
+            <h3>✏️ Changing Orders</h3>
             <p>No changes are allowed after completion. Minor adjustments may be requested during development only.</p>
         </div>
 
         <div class="term-box">
-            <h3>Gamepass Purchases</h3>
+            <h3>🎟️ Gamepass Purchases</h3>
             <p>Only purchase gamepasses from individuals with the @Payment Helper role. We are not responsible for scams outside the official Nocturne Designs Purchase Hub.</p>
         </div>
     </div>
@@ -272,3 +293,302 @@ footer {
 
 </body>
 </html>
+``Here’s your **nicer, polished version** of `terms.html` — I’ve added icons, smoother hover effects, subtle gradients, and fade‑up animations so the page feels more premium and engaging while keeping the centered grid layout you wanted:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nocturne Designs - Terms of Service</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+/* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* ANIMATIONS */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 60px;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo img {
+    height: 50px;
+    transition: 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.08);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    transition: 0.3s;
+    position: relative;
+}
+
+nav a:hover {
+    color: #E74C3C;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: #E74C3C;
+    transition: 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(6px) brightness(0.35);
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(231,76,60,0.55), rgba(146,43,33,0.55));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 58px;
+    font-weight: 800;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+/* TERMS SECTION */
+section {
+    padding: 90px 60px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+section p.subtitle {
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    opacity: 0.9;
+}
+
+/* TERMS GRID */
+.terms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.term-box {
+    background: linear-gradient(135deg, #1c1c1c, #2a2a2a);
+    padding: 35px;
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 25px rgba(231,76,60,0.25);
+    transition: 0.4s ease;
+    text-align: left;
+    max-width: 350px;
+    animation: fadeUp 1s ease forwards;
+}
+
+.term-box:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(231,76,60,0.35);
+    background: linear-gradient(135deg, #E74C3C, #922B21);
+}
+
+.term-box h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.term-box p {
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+footer {
+    padding: 30px;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    font-size: 14px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">
+        <a href="index.html">
+            <img src="NFI.webp" alt="Nocturne Designs Logo">
+        </a>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="https://discord.gg/GHYsrwvaN7" target="_blank">Discord</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <img src="official_banner.webp" alt="Hero Background">
+    <div class="hero-content fade-up">
+        <h1>Order Regulations</h1>
+        <p>Review and comply with all terms before placing an order.</p>
+    </div>
+</div>
+
+<!-- TERMS -->
+<section class="fade-up">
+    <h2>Nocturne Designs – Terms of Service</h2>
+    <p class="subtitle">Failure to adhere to these rules may result in being blacklisted from ordering services.</p>
+
+    <div class="terms-grid">
+        <div class="term-box">
+            <h3>💰 Payments & Assets</h3>
+            <p>Clients must pay either 50/50 or fully upfront depending on the designer’s requirements. Final products are delivered unwatermarked only after full payment. PSD/PDN files are not provided.</p>
+        </div>
+
+        <div class="term-box">
+            <h3>📜 Details</h3>
+            <p>You are required to provide all necessary information crucial to the designer’s preference for your order. Missing details may delay production.</p>
+        </div>
+
+        <div class="term-box">
+            <h3>🚫 Designer Pinging</h3>
+            <p>Consistently pinging a designer to rush your order will result in immediate ticket closure. Refunds will not be issued in such cases.</p>
+        </div>
+
+        <div class="term-box">
+            <h3>🎨 Requesting Designers</h3>
+            <p>You may request a specific designer, but arrangements must be made before the order begins.</p>
+        </div>
+
+        <div class="term-box">
+            <h3>🔗 Reselling</h3>
+            <p>Reselling our products is only permitted if the designer explicitly allows it. In such cases, proper credit must be given to both the designer and Nocturne Designs.</p>
+        </div>
+
+        <div class="term-box">
+            <h3>💳 Refunds</h3>
+            <p>Refunds are not offered after payment unless an issue or mistake is caused by our end. Credits may be issued if approved by HR.</p>
+        </div>
+
+        <div class="term-box">
+            <h3>📦 Lost Products</h3>
+            <p>We are not responsible for lost products. Once delivered, clients must store their assets safely.</p>
+        </div>
+
+        <div class="term-box">
+            <h3>✏️ Changing Orders</h3>
+            <p>No changes are allowed after completion. Minor adjustments may be requested during development only.</p>
+        </div>
+
+        <div class="term-box">
+            <h3>🎟️ Gamepass Purchases</h3>
+            <p>Only purchase gamepasses from individuals with the @Payment Helper role. We are not responsible for scams outside the official Nocturne Designs Purchase Hub.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Nocturne Designs. All rights reserved.
+</footer>
+
+</body>
+</
