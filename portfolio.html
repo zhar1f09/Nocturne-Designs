@@ -21,7 +21,7 @@ body {
     overflow-x: hidden;
 }
 
-/* NAVIGATION (same as home) */
+/* NAVIGATION */
 nav {
     display: flex;
     justify-content: space-between;
@@ -35,10 +35,7 @@ nav {
     z-index: 100;
 }
 
-.logo img {
-    height: 50px;
-    transition: 0.3s ease;
-}
+.logo img { height: 50px; transition: 0.3s ease; }
 .logo img:hover { transform: scale(1.08); }
 
 nav ul {
@@ -67,7 +64,7 @@ nav a::after {
 }
 nav a:hover::after { width: 100%; }
 
-/* HERO - now matches Home/Services/Terms (dark, blurred background + red gradient overlay) */
+/* HERO (matching home) */
 .hero-portfolio {
     position: relative;
     height: 400px;
@@ -77,7 +74,6 @@ nav a:hover::after { width: 100%; }
     text-align: center;
     overflow: hidden;
 }
-
 .hero-portfolio img {
     position: absolute;
     width: 100%;
@@ -88,7 +84,6 @@ nav a:hover::after { width: 100%; }
     left: 0;
     z-index: 0;
 }
-
 .hero-portfolio::after {
     content: "";
     position: absolute;
@@ -96,31 +91,28 @@ nav a:hover::after { width: 100%; }
     background: linear-gradient(135deg, rgba(231,76,60,0.55), rgba(146,43,33,0.55));
     z-index: 1;
 }
-
 .hero-content {
     position: relative;
     z-index: 2;
 }
-
 .hero-portfolio h1 {
     font-size: 58px;
     font-weight: 800;
     text-shadow: 2px 2px 12px rgba(0,0,0,0.5);
 }
-
 .hero-portfolio p {
     margin-top: 10px;
     font-size: 20px;
     opacity: 0.9;
 }
 
-/* FILTER BAR */
+/* FILTER BAR + ADMIN BUTTONS */
 .filter-bar {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 12px;
-    margin: 50px auto 40px;
+    margin: 40px auto 20px;
     max-width: 1200px;
     padding: 0 20px;
 }
@@ -137,6 +129,25 @@ nav a:hover::after { width: 100%; }
 .filter-btn.active, .filter-btn:hover {
     background: #E74C3C;
     border-color: #E74C3C;
+}
+.admin-bar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px auto 30px;
+}
+.admin-btn {
+    background: rgba(231,76,60,0.2);
+    border: 1px solid #E74C3C;
+    padding: 8px 20px;
+    border-radius: 40px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.admin-btn:hover {
+    background: #E74C3C;
 }
 
 /* PROJECTS GRID */
@@ -200,7 +211,58 @@ nav a:hover::after { width: 100%; }
 }
 .service-link:hover { gap: 10px; color: #ff7a5c; }
 
-/* FOOTER */
+/* MODAL STYLES */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: #1a1a1e;
+    max-width: 500px;
+    width: 90%;
+    padding: 30px;
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.modal-content h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.modal-content input, .modal-content textarea, .modal-content select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+}
+.modal-content textarea { min-height: 80px; }
+.modal-buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+.modal-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.submit-btn { background: #E74C3C; color: white; }
+.cancel-btn { background: rgba(255,255,255,0.1); color: white; }
+
 footer {
     padding: 30px;
     text-align: center;
@@ -213,7 +275,6 @@ footer {
     nav { flex-direction: column; gap: 15px; padding: 20px; }
     .hero-portfolio h1 { font-size: 38px; }
     .projects-grid { padding: 0 20px 50px; gap: 20px; }
-    .filter-bar { margin-top: 30px; }
 }
 </style>
 </head>
@@ -239,13 +300,36 @@ footer {
 </div>
 
 <div class="filter-bar" id="filterBar"></div>
+<div class="admin-bar">
+    <button class="admin-btn" id="addProjectBtn">➕ Add new project (Discord image)</button>
+    <button class="admin-btn" id="resetDefaultBtn">⟳ Reset to default</button>
+</div>
 <div id="projectsGrid" class="projects-grid"></div>
 
 <footer>© 2026 NFI's Custom. All rights reserved.</footer>
 
+<!-- Modal for adding project -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <h3>Add portfolio item</h3>
+        <input type="text" id="projectImgUrl" placeholder="Discord image URL (direct link)" value="">
+        <input type="text" id="projectTitle" placeholder="Project title">
+        <textarea id="projectDesc" placeholder="Short description"></textarea>
+        <input type="text" id="projectCategory" placeholder="Category (e.g., Scripting, GFX)" list="categorySuggestions">
+        <datalist id="categorySuggestions">
+            <option>Scripting</option><option>Discord Services</option><option>Graphics & GFX</option>
+            <option>User Interface (UI)</option><option>Clothing</option><option>Modeling & Building</option>
+        </datalist>
+        <div class="modal-buttons">
+            <button class="submit-btn" id="saveProjectBtn">Save project</button>
+            <button class="cancel-btn" id="closeModalBtn">Cancel</button>
+        </div>
+    </div>
+</div>
+
 <script>
-    // Portfolio database (same as used in services.html previews)
-    const portfolioDB = {
+    // ---------- DEFAULT PORTFOLIO DATA (same as before) ----------
+    const DEFAULT_CATEGORIES = {
         "Scripting": {
             works: [
                 { img: "https://picsum.photos/id/26/500/350", title: "Admin Control Panel", desc: "Full moderation suite with logs" },
@@ -286,72 +370,160 @@ footer {
         }
     };
 
-    // Flatten all projects for "All" view
-    let allProjects = [];
-    for (let cat in portfolioDB) {
-        portfolioDB[cat].works.forEach(w => {
-            allProjects.push({ ...w, category: cat });
-        });
+    // Storage key
+    const STORAGE_KEY = "nocturne_portfolio_data";
+
+    // Load or initialize portfolio data
+    function loadPortfolioData() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            try {
+                return JSON.parse(stored);
+            } catch(e) { console.warn(e); }
+        }
+        // deep copy default
+        return JSON.parse(JSON.stringify(DEFAULT_CATEGORIES));
     }
 
-    function renderProjects(filterCat = 'all') {
+    let portfolioDB = loadPortfolioData();
+    let allProjects = [];
+    let currentFilter = "all";
+
+    function rebuildAllProjects() {
+        allProjects = [];
+        for (let cat in portfolioDB) {
+            portfolioDB[cat].works.forEach(w => {
+                allProjects.push({ ...w, category: cat });
+            });
+        }
+    }
+
+    function saveToLocalStorage() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(portfolioDB));
+    }
+
+    // Render projects based on currentFilter
+    function renderProjects() {
         const grid = document.getElementById('projectsGrid');
-        const filtered = filterCat === 'all' ? allProjects : allProjects.filter(p => p.category === filterCat);
+        const filtered = currentFilter === "all" ? allProjects : allProjects.filter(p => p.category === currentFilter);
         grid.innerHTML = '';
         if (filtered.length === 0) {
-            grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;">✨ No projects in this category yet. Check back soon!</div>';
+            grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:60px;">✨ No projects in this category. Add some using the button above!</div>';
             return;
         }
         filtered.forEach(proj => {
             const card = document.createElement('div');
             card.className = 'project-card';
             card.innerHTML = `
-                <img class="project-img" src="${proj.img}" alt="${proj.title}" loading="lazy">
+                <img class="project-img" src="${proj.img}" alt="${proj.title}" loading="lazy" onerror="this.src='https://picsum.photos/id/1/500/350'">
                 <div class="project-details">
-                    <span class="project-cat">${proj.category}</span>
-                    <div class="project-title">${proj.title}</div>
-                    <div class="project-desc">${proj.desc}</div>
-                    <a href="services.html" class="service-link">↗ related service · ${proj.category}</a>
+                    <span class="project-cat">${escapeHtml(proj.category)}</span>
+                    <div class="project-title">${escapeHtml(proj.title)}</div>
+                    <div class="project-desc">${escapeHtml(proj.desc)}</div>
+                    <a href="services.html" class="service-link">↗ related service · ${escapeHtml(proj.category)}</a>
                 </div>
             `;
             grid.appendChild(card);
         });
     }
 
+    function escapeHtml(str) { return str.replace(/[&<>]/g, function(m){if(m==='&') return '&amp;'; if(m==='<') return '&lt;'; if(m==='>') return '&gt;'; return m;}); }
+
     function buildFilters() {
         const bar = document.getElementById('filterBar');
         const categories = Object.keys(portfolioDB);
-        bar.innerHTML = `<button class="filter-btn active" data-filter="all">All work</button>`;
+        bar.innerHTML = `<button class="filter-btn ${currentFilter === 'all' ? 'active' : ''}" data-filter="all">All work</button>`;
         categories.forEach(cat => {
             const btn = document.createElement('button');
-            btn.className = 'filter-btn';
+            btn.className = `filter-btn ${currentFilter === cat ? 'active' : ''}`;
             btn.innerText = cat;
             btn.dataset.filter = cat;
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderProjects(cat);
+                currentFilter = cat;
+                rebuildAllProjects();
+                renderProjects();
+                buildFilters(); // refresh active state
             });
             bar.appendChild(btn);
         });
         const allBtn = bar.querySelector('[data-filter="all"]');
-        allBtn.addEventListener('click', () => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            allBtn.classList.add('active');
-            renderProjects('all');
-        });
-
-        // URL parameter handling (coming from services.html clicks)
-        const urlParams = new URLSearchParams(window.location.search);
-        const filterParam = urlParams.get('filter');
-        if (filterParam && categories.includes(filterParam)) {
-            const targetBtn = Array.from(bar.querySelectorAll('.filter-btn')).find(b => b.innerText === filterParam);
-            if (targetBtn) targetBtn.click();
-        } else {
-            renderProjects('all');
+        if (allBtn) {
+            allBtn.addEventListener('click', () => {
+                currentFilter = "all";
+                rebuildAllProjects();
+                renderProjects();
+                buildFilters();
+            });
         }
     }
 
+    // Reset to default (clear localStorage and reload)
+    function resetToDefault() {
+        if (confirm("⚠️ This will delete all your added projects and restore the default portfolio. Continue?")) {
+            localStorage.removeItem(STORAGE_KEY);
+            portfolioDB = JSON.parse(JSON.stringify(DEFAULT_CATEGORIES));
+            rebuildAllProjects();
+            currentFilter = "all";
+            renderProjects();
+            buildFilters();
+        }
+    }
+
+    // Add new project using Discord image URL
+    function addNewProject(imgUrl, title, desc, category) {
+        if (!imgUrl || !title || !desc || !category) {
+            alert("Please fill all fields (image URL, title, description, category).");
+            return false;
+        }
+        // simple URL validation
+        if (!imgUrl.startsWith("http")) {
+            alert("Image URL must start with http:// or https:// (Discord CDN works perfectly).");
+            return false;
+        }
+        const newWork = { img: imgUrl, title: title, desc: desc };
+        if (!portfolioDB[category]) {
+            portfolioDB[category] = { works: [] };
+        }
+        portfolioDB[category].works.push(newWork);
+        saveToLocalStorage();
+        rebuildAllProjects();
+        if (currentFilter === "all" || currentFilter === category) {
+            renderProjects();
+        }
+        buildFilters(); // update filter bar with new category
+        return true;
+    }
+
+    // Modal logic
+    const modal = document.getElementById('projectModal');
+    const addBtn = document.getElementById('addProjectBtn');
+    const resetBtn = document.getElementById('resetDefaultBtn');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const saveBtn = document.getElementById('saveProjectBtn');
+
+    addBtn.onclick = () => { modal.style.display = 'flex'; };
+    closeBtn.onclick = () => { modal.style.display = 'none'; };
+    resetBtn.onclick = resetToDefault;
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+    saveBtn.onclick = () => {
+        const imgUrl = document.getElementById('projectImgUrl').value.trim();
+        const title = document.getElementById('projectTitle').value.trim();
+        const desc = document.getElementById('projectDesc').value.trim();
+        let category = document.getElementById('projectCategory').value.trim();
+        if (!category) category = "Other";
+        if (addNewProject(imgUrl, title, desc, category)) {
+            modal.style.display = 'none';
+            document.getElementById('projectImgUrl').value = '';
+            document.getElementById('projectTitle').value = '';
+            document.getElementById('projectDesc').value = '';
+            document.getElementById('projectCategory').value = '';
+        }
+    };
+
+    // Initial load
+    rebuildAllProjects();
+    renderProjects();
     buildFilters();
 </script>
 </body>
